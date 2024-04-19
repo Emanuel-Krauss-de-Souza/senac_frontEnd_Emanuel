@@ -1,24 +1,55 @@
-<div>
-  <table class="table table-striped">
+<div class="container">
+  <form>
+    <div class="card">
+      <div class="card-header text-white bg-primary">
+        <h4>Filtros</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <label for="nomePais" class="for m-label">País:</label>
+            <input type="text" class="form-control" name="nomePais" [(ngModel)]="seletor.nomePais">
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="nomeVacina" class="form-label">Nome:</label>
+            <input type="text" class="form-control" name="nomeVacina">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <label for="nomePais" class="form-label">&nbsp;</label>
+            <button type="submit" class="btn btn-primary" (click)="pesquisar()">Pesquisar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <br><br>
+
+  <table class="table table-dark table-hover">
     <thead>
       <tr>
         <th>Nome</th>
-        <th>País de Origem</th>
-        <th>Pesquisador Responsavel</th>
-        <th>Data Inicio da Pesquisa</th>
-        <th>Estágio</th>
+        <th>Pais de Origem</th>
+        <th>Pesquisador Responsável</th>
+        <th>Data de Inicio da Pesquisa</th>
+        <th>Estágio da Pesquisa</th>
         <th>Média</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let vacina of vacinas">
-        <td>{{ vacina.nome}}</td>
-        <!-- <td>{{ vacina.paisOrigem}}</td> -->
-        <!-- <td>{{ vacina.pesquisadorResponsavel}}</td> -->
-        <td>{{ vacina.dataInicioPesquisa | date: 'dd/MM/yyyy'}}</td>
-        <td>{{ vacina.estagio}}</td>
-        <td>{{ vacina.media}}</td>
-      </tr>
+      @for (vacina of vacinas; track vacina){
+        <tr>
+          <td>{{ vacina.nome }}</td>
+          <td>{{ vacina.paisOrigem.nome }}</td>
+          <td>{{ vacina.pesquisadorResponsavel.nome }}</td>
+          <td>{{ vacina.dataInicioPesquisa | date: 'dd/MM/yyyy'}}</td>
+          <td>{{ vacina.estagio }}</td>
+          <td>{{ vacina.media}}</td>
+        </tr>
+      }
     </tbody>
   </table>
+
 </div>

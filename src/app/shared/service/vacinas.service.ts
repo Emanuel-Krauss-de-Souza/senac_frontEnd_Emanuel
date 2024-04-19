@@ -16,5 +16,7 @@ export class VacinasService {
     return this.httpClient.get<Array<Vacina>> (this.API + '/todas');
   }
 
+  pesquisar(): TERMINAR ESSE METODO, PROVAVELMENTE FALAR COM O CALEB
+
 
 }
