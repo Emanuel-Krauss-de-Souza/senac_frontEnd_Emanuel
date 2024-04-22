@@ -1,8 +1,8 @@
 <div class="container">
   <form>
     <div class="card">
-      <div class="card-header text-white bg-primary">
-        <h4>Filtros</h4>
+      <div class="card-header text-white bg-dark">
+        <h4>Filtros Vacina</h4>
       </div>
       <div class="card-body">
         <div class="row">
@@ -12,13 +12,14 @@
           </div>
           <div class="col-md-6 form-group">
             <label for="nomeVacina" class="form-label">Nome:</label>
-            <input type="text" class="form-control" name="nomeVacina">
+            <input type="text" class="form-control" name="nomeVacina" [(ngModel)]="seletor.nomeVacina">
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 form-group">
             <label for="nomePais" class="form-label">&nbsp;</label>
-            <button type="submit" class="btn btn-primary" (click)="pesquisar()">Pesquisar</button>
+            <button type="submit" class="btn btn-success" (click)="pesquisar()">Pesquisar</button>
+            <button type="submit" class="btn btn-danger" (click)="limpar()">limpar</button>
           </div>
         </div>
       </div>

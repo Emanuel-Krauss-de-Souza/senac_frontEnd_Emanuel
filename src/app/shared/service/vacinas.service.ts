@@ -1,3 +1,4 @@
+import { VacinaSeletor } from 'src/app/shared/model/vacina.seletor';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,11 +13,10 @@ export class VacinasService {
 
   constructor(private httpClient: HttpClient) { }
 
-  listarTodas(): Observable<Array<Vacina>> {
+  public listarTodas(): Observable<Array<Vacina>> {
     return this.httpClient.get<Array<Vacina>> (this.API + '/todas');
   }
-
-  pesquisar(): TERMINAR ESSE METODO, PROVAVELMENTE FALAR COM O CALEB
-
-
+  public consultarComSeletor(seletor: VacinaSeletor): Observable<Array<Vacina>> {
+    return this.httpClient.post<Array<Vacina>> (this.API + '/filtro', seletor);
+  }
 }

@@ -1,7 +1,7 @@
+import { VacinaSeletor } from './../../shared/model/vacina.seletor';
 import { Component, OnInit } from '@angular/core';
 import { Vacina } from '../../shared/model/Vacina';
 import { VacinasService } from '../../shared/service/vacinas.service';
-import { VacinaSeletor } from 'src/app/shared/model/vacina.seletor';
 
 
 @Component({
@@ -29,5 +29,17 @@ export class VacinaListagemComponent implements OnInit {
         console.error('Erro ao consultar vacinas', erro);
       }
     );
+  }
+  public pesquisar () {
+    this.VacinaService.consultarComSeletor(this.seletor).subscribe(
+      resultado => {
+        this.vacinas = resultado;
+      }, erro => {
+        console.error('Erro ao consultar vacinas', erro);
+      }
+    );
+  }
+  public limpar () {
+    this.seletor = new VacinaSeletor();
   }
 }
