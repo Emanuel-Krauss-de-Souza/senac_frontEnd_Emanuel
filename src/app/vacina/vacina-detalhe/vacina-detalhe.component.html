@@ -1,1 +1,58 @@
-Cadastro
+<div class="container">
+    <form>
+        <div clas="card">
+            <div class="card-header">
+                <h3>Cadastro de Vacina</h3>
+            </div>
+            <div class="card-header">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="nome">Nome da Vacina</label>
+                        <input type="text" class="form-control" name="nome" >
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="paisOrigem">Nome do País de Origem</label>
+                        <select class="form-control" name="paisOrigem" [(ngModel)]="Vacina.paisOrigem" required>
+                            @for (pais of pais; track pais.idPais){
+                                <option [ngValue]="pais">
+                                 {{ pais.nome}} ({{ pais.sigla }})
+                                </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="pesquisadorResponsavel">Nome do Pesquisador Responsável</label>
+                        <select class="form-control" name="pesquisadorResponsavel" [(ngModel)]="Vacina.pesquisadorResponsavel" required>
+                            @for (pessoa of pesquisadores; track pessoa.id){
+                                <option [ngValue]="pessoa">
+                                 {{ pessoa.nome }}
+                                </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="dataInicioPesquisa">Data do Início da Pesquisa</label>
+                            <input type="date" class="form-control" name="dataInicioPesquisa" [(ngModel)]="Vacina.dataInicioPesquisa" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="estagio">Estagio</label>
+                            <input type="range" class="form-range" name="estagio" min="1" max="5" [(ngModel)]="Vacina.estagio" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6"></div>
+                        <label>&nbsp;</label>
+                        <button type="submit" class="form-control btn btn-primary" (click)="cadastrar()"><i class="bi bi-check">
+                        </i>Cadastrar</button>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>&nbsp;</label>
+                        <button type="submit" class="form-control btn btn-warning" (click)="voltar()">Voltar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
