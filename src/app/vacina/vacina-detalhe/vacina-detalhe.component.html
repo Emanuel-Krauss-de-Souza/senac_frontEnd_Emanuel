@@ -1,58 +1,68 @@
-<div class="container">
-    <form>
-        <div clas="card">
-            <div class="card-header">
-                <h3>Cadastro de Vacina</h3>
+<div class="container" data-bs-theme="dark">
+  <br>
+  <form>
+    <div class="card border-primary border-3">
+      <div class="card-header text-white border-primary border-3">
+        <h4>Cadastrar Vacina</h4>
+      </div>
+      <div class="card-body bg-dark text-white">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="nome"><strong>Nome da Vacina</strong></label>
+            <select class="form-control border-primary border-1" name="paisOrigem" [(ngModel)]="vacina.paisOrigem" required>
+              @for (pais of pais; track pais.id){
+              <option [ngValue]="pais">
+                {{ pais.nome}} ({{ pais.sigla }})
+              </option>
+              }
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="paisOrigem"><strong>Nome do País de Origem</strong></label>
+            <select class="form-control border-primary border-1" name="paisOrigem" [(ngModel)]="vacina.paisOrigem" required>
+              @for (pais of pais; track pais.id){
+              <option [ngValue]="pais">
+                {{ pais.nome}} ({{ pais.sigla }})
+              </option>
+              }
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="pesquisadorResponsavel"><strong>Nome do Pesquisador Responsável</strong></label>
+            <select class="form-control border-primary border-1" name="pesquisadorResponsavel" [(ngModel)]="vacina.pesquisadorResponsavel"
+              required>
+              @for (pessoa of pesquisadores; track pessoa.id){
+              <option [ngValue]="pessoa">
+                {{ pessoa.nome }}
+              </option>
+              }
+            </select>
+          </div>
+            <div class="form-group col-md-3">
+              <label for="dataInicioPesquisa"><strong>Data de Início</strong></label>
+              <input type="date" class="form-control border-primary border-1" name="dataInicioPesquisa" [(ngModel)]="vacina.dataInicioPesquisa"
+                required>
             </div>
-            <div class="card-header">
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="nome">Nome da Vacina</label>
-                        <input type="text" class="form-control" name="nome" >
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="paisOrigem">Nome do País de Origem</label>
-                        <select class="form-control" name="paisOrigem" [(ngModel)]="Vacina.paisOrigem" required>
-                            @for (pais of pais; track pais.idPais){
-                                <option [ngValue]="pais">
-                                 {{ pais.nome}} ({{ pais.sigla }})
-                                </option>
-                            }
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="pesquisadorResponsavel">Nome do Pesquisador Responsável</label>
-                        <select class="form-control" name="pesquisadorResponsavel" [(ngModel)]="Vacina.pesquisadorResponsavel" required>
-                            @for (pessoa of pesquisadores; track pessoa.id){
-                                <option [ngValue]="pessoa">
-                                 {{ pessoa.nome }}
-                                </option>
-                            }
-                        </select>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label for="dataInicioPesquisa">Data do Início da Pesquisa</label>
-                            <input type="date" class="form-control" name="dataInicioPesquisa" [(ngModel)]="Vacina.dataInicioPesquisa" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="estagio">Estagio</label>
-                            <input type="range" class="form-range" name="estagio" min="1" max="5" [(ngModel)]="Vacina.estagio" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-6"></div>
-                        <label>&nbsp;</label>
-                        <button type="submit" class="form-control btn btn-primary" (click)="cadastrar()"><i class="bi bi-check">
-                        </i>Cadastrar</button>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>&nbsp;</label>
-                        <button type="submit" class="form-control btn btn-warning" (click)="voltar()">Voltar</button>
-                    </div>
-                </div>
+            <div class="form-group col-md-3">
+              <label for="estagio"><strong>Estágio:</strong></label>
+              &nbsp;<strong style="color: greenyellow">{{vacina.estagio}}</strong>
+              <input type="range" class="form-control border-primary border-1" style="height: 37px;" name="estagio" min="1" max="3" [(ngModel)]="vacina.estagio"
+                required>
             </div>
+          <div class="row" style="align-items: left;">
+            <div class="form-group col-md-1">
+              <label>&nbsp;</label>
+              <button type="submit" class="form-control btn btn-primary" (click)="cadastrar()"><i class="bi bi-check">
+                </i><strong>Cadastrar</strong></button>
+            </div>
+            <div class="form-group col-md-1">
+              <label>&nbsp;</label>
+              <button type="submit" class="form-control btn btn-warning" (click)="voltar()"><strong>Voltar</strong></button>
+            </div>
+          </div>
         </div>
-    </form>
+      </div>
+    </div>
+  </form>
 </div>
 

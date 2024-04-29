@@ -2,7 +2,7 @@ import { Pais } from "./Pais";
 import { Pessoa } from "./Pessoa";
 
 
-export interface Vacina{
+export class Vacina{
   id: number;
 	nome: String ;
 	paisOrigem: Pais;
