@@ -5,7 +5,8 @@ import { VacinaListagemComponent } from './vacina-listagem/vacina-listagem.compo
 
 const routes: Routes = [
   {path: '', component: VacinaListagemComponent},
-  {path: 'detalhe', component: VacinaDetalheComponent}
+  {path: 'detalhe', component: VacinaDetalheComponent},
+  {path: 'detalhe/:id', component: VacinaDetalheComponent},
 ];
 
 @NgModule({

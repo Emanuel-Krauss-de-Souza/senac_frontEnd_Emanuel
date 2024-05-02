@@ -8,12 +8,12 @@
       <div class="card-body bg-dark text-white">
         <div class="row">
           <div class="col-md-6 form-group">
-            <label for="nomePais" class="form-label"><strong>País:</strong></label>
-            <input type="text" class="form-control border-primary border-1" name="nomePais" [(ngModel)]="seletor.nomePais">
-          </div>
-          <div class="col-md-6 form-group">
             <label for="nomePesquisador" class="form-label"><strong>Nome do(a) Pesquisador(a):</strong></label>
             <input type="text" class="form-control border-primary border-1" name="nomePesquisador" [(ngModel)]="seletor.nomePesquisador">
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="nomePais" class="form-label"><strong>País:</strong></label>
+            <input type="text" class="form-control border-primary border-1" name="nomePais" [(ngModel)]="seletor.nomePais">
           </div>
         </div>
         <div class="row">
@@ -44,7 +44,7 @@
   <br>
   <table class="table table-striped  table-dark table-hover border-primary border-3" style="text-align: center;">
     <thead class="border-primary border-3">
-      <tr c>
+      <tr>
         <th>Nome</th>
         <th>Pais de Origem</th>
         <th>Pesquisador Responsável</th>
@@ -64,9 +64,11 @@
           <td>{{ vacina.estagio }}</td>
           <td>{{ vacina.media}}</td>
           <td>
-            <div class="row">
-              <button class="btn btn-primary col-md-4">Editar</button>
-              <button class="btn btn-danger col-md-4">Excluir</button>
+            <div class="row" style="text-align: center;">
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-primary col-md-5" (click)="editarVacina(vacina.id)">Editar</button>
+              &nbsp;&nbsp;
+              <button class="btn btn-danger col-md-5" (click)="excluirVacina(vacina)">Excluir</button>
             </div>
           </td>
         </tr>

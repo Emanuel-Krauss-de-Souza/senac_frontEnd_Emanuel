@@ -33,11 +33,11 @@ export class VacinasService {
   }
 
   public excluir(id: number):Observable<boolean> {
-    return this.httpClient.delete<boolean>(this.API + "/excluir/" + id);
+    return this.httpClient.delete<boolean>(this.API +"/"+id);
   }
 
   public atualizar(vacina: Vacina):Observable<any> {
-    return this.httpClient.put(this.API + '/alterar', vacina)
+    return this.httpClient.put(this.API, + vacina)
   }
 
 
