@@ -6,5 +6,5 @@ export const routes: Routes = [
       loadChildren: () =>
         import('./vacina/vacina.module').then((m) => m.VacinaModule)
     }
-    
+
 ];

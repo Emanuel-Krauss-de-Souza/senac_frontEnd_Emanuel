@@ -16,7 +16,7 @@ export class VacinasService {
   constructor(private httpClient: HttpClient) { }
 
   public listarTodas(): Observable <Array<Vacina>> {
-    return this.httpClient.get<Array<Vacina>>(this.API + "/listarTodos");
+    return this.httpClient.get<Array<Vacina>>(this.API + "/todas");
 
   }
   public consultarPorId(id: number): Observable <Vacina> {
@@ -39,6 +39,10 @@ export class VacinasService {
   public atualizar(vacina: Vacina):Observable<any> {
     return this.httpClient.put(this.API, + vacina)
   }
-
-
+  contarPaginas(seletor: VacinaSeletor): Observable<number> {
+    return this.httpClient.post<number>(this.API + '/total-paginas', seletor);
+  }
+  contarTotalRegistros(seletor: VacinaSeletor): Observable<number> {
+    return this.httpClient.post<number>(this.API + '/contar', seletor);
+  }
 }

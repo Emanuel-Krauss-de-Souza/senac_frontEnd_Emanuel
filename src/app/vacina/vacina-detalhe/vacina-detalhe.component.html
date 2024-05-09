@@ -16,30 +16,25 @@
 
           <div class="form-group col-md-6">
             <label for="paisOrigem"><strong>Nome do País de Origem</strong></label>
-            <select class="form-select border-primary border-1" name="paisOrigem" [ngModelOptions]="{standalone: true}" aria-label="Selecione um país"
-            [compareWith]="compareById" [(ngModel)]="vacina.paisOrigem">
-            <option *ngFor="let paisOrigem of pais" [ngValue]="pais">
-            {{vacina.nome}}
-            </option>
-            </select>
+            <select class="form-control border-primary border-1" name="paisOrigem" [(ngModel)]="vacina.paisOrigem" [compareWith]="compareById">
+              @for(paisOrigem of paises; track paisOrigem.id){
+              <option [ngValue]="paises">{{ paisOrigem.nome }} ({{paisOrigem.sigla}})</option>
+            }</select>
+
           </div>
 
           <div class="form-group col-md-6">
-            <label for="pesquisadorResponsavel"><strong>Nome do Pesquisador Responsável</strong></label>
-            <select class="form-select border-primary border-1" name="pesquisadorResponsavel" [ngModelOptions]="{standalone: true}" aria-label="Selecione um pesquisador"
-            [compareWith]="compareById" [(ngModel)]="vacina.pesquisadorResponsavel">
-            <option *ngFor="let pesquisador of pesquisadores" [ngValue]="pesquisadores">
-            {{vacina.nome}}
-            </option>
-            </select>
+            <label for="pesquisadorResponsavel"><strong>Nome do(a) Pesquisador(a) Responsável</strong></label>
+              <select class="form-control border-primary border-1" name="pesquisadorResponsavel" [(ngModel)]="vacina.pesquisadorResponsavel" [compareWith]="compareById">
+                @for(pesquisador of pesquisadores; track pesquisador.id){
+                <option [ngValue]="pesquisador">{{ pesquisador.nome }}</option>
+              }</select>
           </div>
-
-            <div class="form-group col-md-3">
+          <div class="form-group col-md-3">
               <label for="dataInicioPesquisa"><strong>Data de Início</strong></label>
               <input type="date" class="form-control border-primary border-1" name="dataInicioPesquisa" [(ngModel)]="vacina.dataInicioPesquisa"
                 required>
-            </div>
-
+          </div>
             <div class="form-group col-md-3">
               <label for="estagio"><strong>Estágio:</strong></label>
               &nbsp;<strong style="color: greenyellow">{{vacina.estagio}}</strong>
@@ -48,21 +43,18 @@
             </div>
 
           <div class="row">
-
-            <div class="form-group col-md-2"  style="align-items: left;">
+            <div class="form-group col-md-2">
               <label>&nbsp;</label>
-              <button type="submit" class="form-select btn btn-primary" (click)="cadastrar()"><i class="bi bi-check">
+              <button type="submit" class="form-control btn btn-primary" (click)="cadastrar()"><i class="bi bi-check">
                 </i><strong>Cadastrar</strong></button>
             </div>
-
             <div class="form-group col-md-1">
               <label>&nbsp;</label>
-              <button type="submit" class="form-select btn btn-warning" (click)="voltar()"><strong>Voltar</strong></button>
+              <button type="submit" class="form-control btn btn-warning" (click)="voltar()"><strong>Voltar</strong></button>
             </div>
-
+          </div>
           </div>
         </div>
-      </div>
     </div>
   </form>
 </div>

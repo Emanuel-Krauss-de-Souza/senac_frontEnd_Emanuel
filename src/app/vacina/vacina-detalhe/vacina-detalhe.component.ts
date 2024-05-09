@@ -16,7 +16,7 @@ import { Vacina } from 'src/app/shared/model/Vacina';
 
 export class VacinaDetalheComponent implements OnInit {
 
-  public pais: Array<Pais> = new Array();
+  public paises: Array<Pais> = new Array();
   public pesquisadores: Array<Pessoa> = new Array();
   public vacina: Vacina = new Vacina();
   public idVacina: number;
@@ -49,10 +49,10 @@ export class VacinaDetalheComponent implements OnInit {
     )
     this.paisService.consultarTodosPaises().subscribe(
       (resultado) => {
-        this.pais = resultado;
+        this.paises = resultado;
       },
       (erro) => {
-        console.error('erro ao consultar todos países', erro);
+        console.error('Erro ao consultar todos países', erro);
       }
     );
   }
