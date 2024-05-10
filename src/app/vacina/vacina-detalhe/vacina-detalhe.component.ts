@@ -69,11 +69,11 @@ export class VacinaDetalheComponent implements OnInit {
     this.VacinasService.salvar(this.vacina).subscribe(
       (resposta) => {
         this.vacina = resposta;
-        Swal.fire('Vacina salva com sucesso!', '', 'success');
+        Swal.fire('Vacina cadastrada com sucesso!', '', 'success');
         this.voltar();
       },
       (erro) => {
-        Swal.fire('Erro ao salvar vacina!', erro, 'error')
+        Swal.fire('Erro ao cadastrar vacina!', erro, 'error')
       }
     )
   };

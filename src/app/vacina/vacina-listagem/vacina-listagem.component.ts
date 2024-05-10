@@ -100,7 +100,7 @@ export class VacinaListagemComponent implements OnInit {
   }
 
   voltarPagina() {
-    this.seletor.pagina++;
+    this.seletor.pagina--;
     this.pesquisar();
   }
   irParaPagina(indicePagina: number){

@@ -29,7 +29,7 @@ export class VacinasService {
 
 
   public salvar(vacina: Vacina): Observable<any> {
-    return this.httpClient.post<Vacina>(this.API + '/inserir', vacina)
+    return this.httpClient.post<Vacina>(this.API, vacina)
   }
 
   public excluir(id: number):Observable<boolean> {
@@ -37,7 +37,7 @@ export class VacinasService {
   }
 
   public atualizar(vacina: Vacina):Observable<any> {
-    return this.httpClient.put(this.API, + vacina)
+    return this.httpClient.put(this.API, vacina)
   }
   contarPaginas(seletor: VacinaSeletor): Observable<number> {
     return this.httpClient.post<number>(this.API + '/total-paginas', seletor);

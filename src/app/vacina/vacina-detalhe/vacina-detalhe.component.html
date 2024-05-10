@@ -1,9 +1,10 @@
+<body style="background-image: linear-gradient(to right, #6aaeed, #0f387f)">
 <div class="container" data-bs-theme="dark">
   <br>
   <form>
     <div class="card border-primary border-3">
       <div class="card-header text-white border-primary border-3">
-        <h4>Cadastrar Vacina</h4>
+        <h4>Cadastrando uma Vacina</h4>
       </div>
       <div class="card-body bg-dark text-white">
 
@@ -18,7 +19,7 @@
             <label for="paisOrigem"><strong>Nome do País de Origem</strong></label>
             <select class="form-control border-primary border-1" name="paisOrigem" [(ngModel)]="vacina.paisOrigem" [compareWith]="compareById">
               @for(paisOrigem of paises; track paisOrigem.id){
-              <option [ngValue]="paises">{{ paisOrigem.nome }} ({{paisOrigem.sigla}})</option>
+              <option [ngValue]="paisOrigem">{{ paisOrigem.nome }} ({{paisOrigem.sigla}})</option>
             }</select>
 
           </div>
@@ -38,8 +39,7 @@
             <div class="form-group col-md-3">
               <label for="estagio"><strong>Estágio:</strong></label>
               &nbsp;<strong style="color: greenyellow">{{vacina.estagio}}</strong>
-              <input type="range" class="form-select border-primary border-1" style="height: 37px;" name="estagio" min="1" max="3" [(ngModel)]="vacina.estagio"
-                required>
+              <input type="range" class="form-control border-primary border-1" style="height: 37px;" name="estagio" min="1" max="3" [(ngModel)]="vacina.estagio" required>
             </div>
 
           <div class="row">
@@ -58,4 +58,5 @@
     </div>
   </form>
 </div>
+</body>
 
