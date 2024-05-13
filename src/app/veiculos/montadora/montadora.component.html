@@ -8,11 +8,11 @@
       <div class="card-body bg-dark text-white">
         <div class="row">
           <div class="col-md-6 form-group">
-            <label for="montadora" class="form-label"><strong>Nome da Montadora</strong></label>
-            <select class="form-control" name="montadora" [(ngModel)]="montadora.id"
-              [ngModelOptions]="{standalone: true}" [compareWith]="compareById">
-              @for (montadora of montadoras; track montadora.id) {
-              <option value="{{ montadora.id }}">{{ montadora.nome }} ({{ montadora.paisFundacao }})</option>
+            <label for="montadora" class="form-label border-primary border-3"><strong>Nome da Montadora</strong></label>
+            <select class="form-control border-primary border-1" name="montadora" [(ngModel)]="montadora.nome"
+              [compareWith]="compareById">
+              @for(montadora of montadoras; track montadoras){
+              <option [ngValue]="montadoras">{{ montadora.nome }} ({{montadora.paisFundacao}})</option>
               }
             </select>
           </div>
